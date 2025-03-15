@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# Trend Micro Artifact Scan install script for Linux and MacOS.
-# For more details, check the official documentation: https://docs.trendmicro.com/en-us/documentation/article/trend-vision-one-integrating-tmas-ci-cd-pipeline
-
 # Get OS and architecture information first
 OS=$(uname -s)
 ARCH=$(uname -m)
@@ -151,6 +148,15 @@ then
         echo "TMAS CLI has been successfully installed! Version: $NEW_VERSION"
     fi
     echo "You can run 'tmas --version' to verify the installation."
+    
+    # Add recommendation for setting up API key
+    echo ""
+    echo "===== NEXT STEPS ====="
+    echo "To start using TMAS CLI, set up your Trend Vision One API key with:"
+    echo ""
+    echo "export TMAS_API_KEY=<your_trend_vision_one_api_key>"
+    echo ""
+    echo "You can add this to your shell profile (~/.bashrc, ~/.zshrc, etc.) to make it permanent."
 else
     echo "Installation failed. Please check the error messages above."
     exit 1
